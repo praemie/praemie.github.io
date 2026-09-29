@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ich werbe dich</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'self'">
+<script src="ablauf.js" defer></script>
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Bei diesen Banken und Karten werbe ich dich und gebe dir den Großteil meiner Werberprämie ab.">
+<style>
+:root {
+  --bg: #eef0ec;
+  --flaeche: #ffffff;
+  --linie: #e1e4df;
+  --text: #15171a;
+  --leise: #5f656b;
+  --geld: #0a7a4c;
+  --frist-bg: #fff1d6;
+  --frist: #8a5300;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121413;
+    --flaeche: #1c1f1d;
+    --linie: #2c302d;
+    --text: #eef1ee;
+    --leise: #9aa19c;
+    --geld: #4fd69a;
+    --frist-bg: #3a2c12;
+    --frist: #ffc766;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 40rem; margin: 0 auto; padding: 1.25rem 1rem 4rem; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--geld); outline-offset: 3px; border-radius: 6px; }
+
+.profil {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--flaeche); border: 1px solid var(--linie);
+  border-radius: 999px; padding: .3rem .9rem .3rem .3rem;
+  text-decoration: none; font-weight: 500; font-size: .95rem;
+}
+.profil .avatar {
+  width: 2rem; height: 2rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--text); color: var(--bg); font-weight: 800;
+}
+.profil small { color: var(--leise); font-weight: 400; }
+
+h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; margin: 2.5rem 0 1rem; }
+.intro { color: var(--leise); font-size: 1.05rem; max-width: 32rem; margin: 0 0 2.5rem; }
+.intro a { color: var(--text); }
+
+.liste { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 22px; overflow: hidden; }
+.deal + .deal { border-top: 1px solid var(--linie); }
+.deal summary {
+  display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: .9rem;
+  padding: 1.1rem 1.1rem; cursor: pointer; list-style: none;
+}
+.deal summary::-webkit-details-marker { display: none; }
+.deal summary::after {
+  content: ""; width: .5rem; height: .5rem;
+  border-right: 2px solid var(--leise); border-bottom: 2px solid var(--leise);
+  transform: rotate(45deg) translateY(-2px); transition: transform .2s;
+}
+.deal[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.punkt { width: .75rem; height: .75rem; border-radius: 4px; background: var(--c); box-shadow: 0 0 0 1px var(--linie); }
+.name b { display: block; font-weight: 700; font-size: 1.05rem; line-height: 1.25; }
+.name small { color: var(--leise); font-size: .88rem; }
+.frist { display: inline-block; margin-left: .35rem; padding: .05rem .5rem; border-radius: 999px; background: var(--frist-bg); color: var(--frist); font-weight: 500; font-size: .78rem; }
+.frist.offen { background: var(--bg); color: var(--leise); }
+.betrag { text-align: right; font-weight: 800; font-size: 1.5rem; letter-spacing: -.02em; color: var(--geld); font-variant-numeric: tabular-nums; white-space: nowrap; line-height: 1.1; }
+.betrag small { display: block; font-weight: 500; font-size: .78rem; letter-spacing: 0; color: var(--leise); }
+.betrag.text { font-size: 1rem; }
+
+.inhalt { padding: 0 1.1rem 1.4rem 2.75rem; }
+.inhalt p, .inhalt ol { margin: .5rem 0; }
+.inhalt ol { padding-left: 1.2rem; }
+.inhalt li + li { margin-top: .25rem; }
+.inhalt h3 { font-size: .95rem; margin: 1.1rem 0 .2rem; }
+.hinweis { color: var(--leise); font-size: .92rem; }
+.los {
+  display: inline-block; margin-top: 1rem;
+  font: 700 .98rem system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--text); color: var(--flaeche);
+  border: 0; border-radius: 999px; padding: .75rem 1.25rem;
+  text-decoration: none; cursor: pointer;
+}
+
+footer { margin-top: 3rem; color: var(--leise); font-size: .85rem; }
+
+@media (max-width: 30rem) {
+  .deal summary { gap: .7rem; padding: 1rem .9rem; }
+  .inhalt { padding: 0 .9rem 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) { .deal summary::after { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="profil" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">
+    <span class="avatar" aria-hidden="true">O</span>
+    <span>Oreki_Houtarou <small>auf mydealz</small></span>
+  </a>
+
+  <h1>Ich werbe dich und du bekommst den Großteil.</h1>
+  <p class="intro">Hier siehst du, bei welchen Banken und Karten ich werben kann und wie viel bei dir landet. Meinen Anteil überweise ich dir, sobald die Bank mir die Prämie gutgeschrieben hat. Tipp auf eine Bank für die Schritte. Wenn du loslegen willst, schreib mir auf <a href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">mydealz</a>, dann bekommst du Link oder Code.</p>
+
+  <div class="liste">
+    <details class="deal" data-bis="2026-09-30">
+      <summary>
+        <span class="punkt" style="--c:#c9a227" aria-hidden="true"></span>
+        <span class="name"><b>Advanzia Mastercard Gold</b><small>Kreditkarte</small><span class="frist">bis 30.09.</span></span>
+        <span class="betrag">105 €</span>
+      </summary>
+      <div class="inhalt">
+        <p>60 € Willkommensbonus direkt von Advanzia, dazu 45 € von meinen 60 € Werberprämie.</p>
+        <h3>Das musst du tun</h3>
+        <ol>
+          <li>Karte bis 30.09.2026 über meinen Link beantragen</li>
+          <li>Per VideoIdent oder PostIdent legitimieren</li>
+          <li>Bis 31.10.2026 einmal mit der Karte bezahlen, egal welcher Betrag. Bargeld, Krypto und Wetten zählen nicht.</li>
+        </ol>
+        <p class="hinweis">Du darfst in den letzten 2 Jahren keine Advanzia-Kreditkarte gehabt haben. Die Karte steht ab Werk auf Teilzahlung mit über 20 % Zinsen. Stell sie gleich nach Erhalt in der App auf Vollzahlung um, dann bleibt sie kostenlos.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+
+    <details class="deal">
+      <summary>
+        <span class="punkt" style="--c:#e2001a" aria-hidden="true"></span>
+        <span class="name"><b>norisbank</b><small>Girokonto und Tagesgeld</small><span class="frist offen">ohne Enddatum</span></span>
+        <span class="betrag">80 €<small>bis 200 €</small></span>
+      </summary>
+      <div class="inhalt">
+        <p>80 € von meinen 120 € Werberprämie. Mit der Kontowechsel-Prämie der norisbank kommen 120 € dazu.</p>
+        <h3>Das musst du tun</h3>
+        <ol>
+          <li>Top-Girokonto und Top-Zinskonto gleichzeitig eröffnen und dabei meine Werberdaten angeben. Die schicke ich dir per Privatnachricht.</li>
+          <li>Per Videolegitimation legitimieren, bei Gemeinschaftskonten per PostIdent</li>
+          <li>Beide Verträge die ersten 4 Wochen nicht widerrufen</li>
+        </ol>
+        <p class="hinweis">Du musst volljährig sein und warst in den letzten 12 Monaten kein norisbank-Kunde. Girokonto plus, Basis- und Pfändungsschutzkonten zählen nicht. Die Aktion läuft bis auf Weiteres, die norisbank kann sie jederzeit beenden. Für die Kontowechsel-Prämie ziehst du bis 30.11.2026 mindestens 3 Zahlungspartner wie Gehalt, Miete oder Strom über den Kontowechselservice um.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+
+    <details class="deal" data-bis="2026-10-07">
+      <summary>
+        <span class="punkt" style="--c:#191c1f" aria-hidden="true"></span>
+        <span class="name"><b>Revolut</b><small>Konto mit Karte</small><span class="frist">bis 07.10.</span></span>
+        <span class="betrag">75 €</span>
+      </summary>
+      <div class="inhalt">
+        <p>75 € von meinen 100 € Werberprämie.</p>
+        <h3>Das musst du tun</h3>
+        <ol>
+          <li>Über meinen Link registrieren</li>
+          <li>Geld auf dein Konto überweisen</li>
+          <li>Eine physische Karte bestellen, sie kostet 7,99 €</li>
+          <li>3 Einkäufe ab je 5 €. Das geht auch per Apple Pay oder Google Pay, du musst nicht auf die Karte warten.</li>
+        </ol>
+        <p class="hinweis">Du darfst noch nie Revolut-Kunde gewesen sein.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+
+    <details class="deal">
+      <summary>
+        <span class="punkt" style="--c:#004481" aria-hidden="true"></span>
+        <span class="name"><b>BBVA</b><small>Girokonto</small><span class="frist offen">ohne Enddatum</span></span>
+        <span class="betrag">60 €</span>
+      </summary>
+      <div class="inhalt">
+        <p>40 € Startbonus direkt von BBVA, dazu 20 € von meinen 30 € Werberprämie.</p>
+        <h3>Das musst du tun</h3>
+        <ol>
+          <li>Konto über den Link eröffnen und bei der Registrierung meinen Code eingeben</li>
+          <li>Innerhalb von 90 Tagen nach der Kontoeröffnung einmal mit der Debitkarte bezahlen, egal welcher Betrag</li>
+        </ol>
+        <p class="hinweis">Du darfst noch nie BBVA-Kunde gewesen sein. Die Aktion läuft bis auf Weiteres, BBVA kann sie jederzeit beenden. Ich kann insgesamt 8 Leute werben.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+
+    <details class="deal" data-bis="2026-11-03">
+      <summary>
+        <span class="punkt" style="--c:#1c67f6" aria-hidden="true"></span>
+        <span class="name"><b>Trading 212</b><small>Depot</small><span class="frist">bis 03.11.</span></span>
+        <span class="betrag text">Aktie<small>+ 75 % meiner Aktie</small></span>
+      </summary>
+      <div class="inhalt">
+        <p>Du bekommst deine eigene Gratisaktie direkt von Trading 212. Ich bekomme auch eine, verkaufe sie und gebe dir 75 % vom Erlös ab, sobald ich ihn auszahlen lassen kann. Jede Aktie ist bis zu 100 € wert, meistens aber unter 20 €.</p>
+        <h3>Das musst du tun</h3>
+        <ol>
+          <li>Konto über meinen Link eröffnen</li>
+          <li>Konto bestätigen und legitimieren</li>
+          <li>Einmal mindestens 1 € einzahlen</li>
+        </ol>
+        <p class="hinweis">Die Aktie kommt einen Werktag nach der Einzahlung. Auszahlen lassen kannst du den Gegenwert 30 Tage nach der Gutschrift. Ich kann insgesamt 5 Leute werben.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+
+    <details class="deal">
+      <summary>
+        <span class="punkt" style="--c:#9aa19c" aria-hidden="true"></span>
+        <span class="name"><b>epap</b></span>
+        <span class="betrag text">auf Anfrage</span>
+      </summary>
+      <div class="inhalt">
+        <p>Die Konditionen ändern sich oft. Schreib mir eine Nachricht, dann bekommst du Link und aktuelle Bedingungen.</p>
+        <a class="los" href="https://www.mydealz.de/profile/Oreki_Houtarou" rel="noopener">Link per Nachricht anfragen</a>
+      </div>
+    </details>
+  </div>
+
+  <footer>
+    <p>Stand: 29.09.2026. Prämien und Bedingungen legen die Banken fest und können sich jederzeit ändern. Es gelten die Bedingungen auf der Seite der jeweiligen Bank.</p>
+  </footer>
+</main>
+</body>
+</html>
